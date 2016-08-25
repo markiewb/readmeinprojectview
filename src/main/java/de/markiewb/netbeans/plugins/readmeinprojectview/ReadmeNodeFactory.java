@@ -57,7 +57,7 @@ import org.openide.nodes.Node;
 public class ReadmeNodeFactory implements NodeFactory {
 
     private final List<String> keywords = Arrays.asList(
-            "gitlab-ci.yml",
+            ".gitlab-ci.yml",
             "readme",
             "authors",
             "changelog",
