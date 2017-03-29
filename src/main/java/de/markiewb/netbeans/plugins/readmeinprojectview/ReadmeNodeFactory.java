@@ -61,6 +61,9 @@ public class ReadmeNodeFactory implements NodeFactory {
             "readme",
             "authors",
             "changelog",
+            "dockerfile",
+            "docker-compose.yml",
+            "docker-compose.yaml",
             "contributing"
     );
 
