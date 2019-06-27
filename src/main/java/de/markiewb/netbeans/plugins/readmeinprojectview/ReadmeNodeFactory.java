@@ -129,7 +129,7 @@ public class ReadmeNodeFactory implements NodeFactory {
             for (FileObject child : directory.getChildren()) {
                 final String lcName = child.getName().toLowerCase();
                 for (final String filenameFilter : filenameFilters) {
-                    if (lcName.startsWith(filenameFilter + ".") || filenameFilter.equals(lcName)) {
+                    if (matches(lcName, filenameFilter)) {
                         keys.add(getFileNode(child));
                     }
                 }
@@ -169,5 +169,12 @@ public class ReadmeNodeFactory implements NodeFactory {
         return NbPreferences.forModule(DisplayReadmeFilesPanel.class)
                 .get(KEY_FILENAMES, DEFAULT_FILENAMES)
                 .split("\n");
+    }
+
+    private static boolean matches(String filename, String filter) {
+        if (filter.isEmpty()) {
+            return false;
+        }
+        return filter.equals(filename) || filename.startsWith(filter + ".");
     }
 }
